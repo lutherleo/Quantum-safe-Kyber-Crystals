@@ -1,0 +1,45 @@
+services:
+  bob:
+    build: .
+    image: pq-secure-comm:latest
+    container_name: pq-bob
+    networks:
+      pqnet:
+        aliases: [bob]
+    command: ["/app/build/bob", "--backend", "A", "--port", "5555"]
+    volumes:
+      - ./results:/results
+
+  alice:
+    image: pq-secure-comm:latest
+    depends_on: [bob]
+    container_name: pq-alice
+    networks:
+      pqnet:
+        aliases: [alice]
+    command: ["/app/build/alice", "--backend", "A", "--host", "bob", "--port", "5555", "--message", "hello from alice"]
+    volumes:
+      - ./results:/results
+
+  attacker:
+    image: pq-secure-comm:latest
+    container_name: pq-attacker
+    cap_add: [NET_ADMIN, NET_RAW]
+    networks:
+      pqnet:
+        aliases: [attacker]
+    command: ["/app/build/attacker", "--mode", "passthrough", "--listen-port", "5555", "--upstream-host", "bob", "--upstream-port", "5556"]
+    volumes:
+      - ./results:/results
+
+  benchmark:
+    image: pq-secure-comm:latest
+    container_name: pq-benchmark
+    networks: [pqnet]
+    command: ["/app/scripts/run_benchmark.sh"]
+    volumes:
+      - ./results:/results
+
+networks:
+  pqnet:
+    driver: bridge
