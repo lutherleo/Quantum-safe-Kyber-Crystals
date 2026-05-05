@@ -1,8 +1,4 @@
 .claude/
 build/
-results/*.png
-results/*.pcap
-results/*.log
-results/*.csv
 *.o
 *.obj

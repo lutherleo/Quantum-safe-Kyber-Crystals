@@ -1,0 +1,15 @@
+backend,artifact,bytes
+A,kem_pk,1184
+A,kem_sk,2400
+A,kem_ct,1088
+A,sig_pk,1952
+A,sig_sk,4032
+A,sig_max,3309
+A,handshake_total,12865
+B,kem_pk,4522
+B,kem_sk,4586
+B,kem_ct,8978
+B,sig_pk,48
+B,sig_sk,96
+B,sig_max,16224
+B,handshake_total,46115

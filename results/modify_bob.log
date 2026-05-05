@@ -1,0 +1,10 @@
+bob: backend=A (ML-KEM-768 + ML-DSA-65)
+bob: listening on :5556
+bob: accepted connection
+[1777840954.659168] responder: received HELLO
+[1777840954.660881] responder: sent HELLO_ACK
+[1777840954.704599] responder: KEM_CT signature verified
+[1777840954.707597] responder: session keys derived
+bob: handshake OK
+GCM auth failure on seq 0
+bob: recv error, terminating

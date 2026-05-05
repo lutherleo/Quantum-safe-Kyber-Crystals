@@ -1,0 +1,11 @@
+bob: backend=A (ML-KEM-768 + ML-DSA-65)
+bob: listening on :5556
+bob: accepted connection
+[1777840958.248193] responder: received HELLO
+[1777840958.253008] responder: sent HELLO_ACK
+[1777840958.300558] responder: KEM_CT signature verified
+[1777840958.302640] responder: session keys derived
+bob: handshake OK
+bob <- alice: replay-target [#1]
+replay detected: seq 0
+bob: recv error, terminating
